@@ -94,7 +94,7 @@
 
 ;;  * expand- and contract-array: should work recursively with nested object literals and nested arrays.
 ;;  * expand- and contract-function: should deal better with nested object literals, array declarations, and statements terminated only by EOLs (without semicolons).
-;;  * wrap-buffer-in-iife: should skip comments and namespace initializations at buffer start.
+;;  * wrap-buffer-in-iife: namespace initializations at buffer start.
 ;;  * extract-variable: could end with a query-replace of the expression in its scope.
 
 ;; ## Contributions

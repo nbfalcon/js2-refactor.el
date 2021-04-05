@@ -69,7 +69,8 @@ BEG and END are the start and end of the region, respectively."
   "Wrap the entire buffer in an immediately invoked function expression"
   (interactive)
   (let ((eob-nl? (eq (char-before (point-max)) ?\n)))
-    (js2r-wrap-in-iife (point-min) (point-max))
+    (js2r-wrap-in-iife (save-excursion (js2r--beginning-of-buffer) (point))
+                       (point-max))
     (unless eob-nl?
       (save-excursion
         (goto-char (point-max))

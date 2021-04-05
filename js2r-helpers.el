@@ -217,5 +217,15 @@ parent node."
         (indent-region abs-beg abs-end)
         (set-marker abs-end nil)))))
 
+(defun js2r--beginning-of-buffer ()
+  (goto-char (point-min))
+  (when (looking-at-p "/[/*]")
+    (while (comment-forward 1)))
+  (save-match-data
+    (unless (looking-back "^[[:digit:]]*$" (line-beginning-position -1))
+      (while (not (looking-back "^[[:digit:]]*$" (line-beginning-position -1)))
+        (forward-line -1))
+      (forward-line))))
+
 (provide 'js2r-helpers)
 ;;; js2-helpers.el ends here
